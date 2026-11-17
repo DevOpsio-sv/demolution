@@ -1,0 +1,17 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { business } from "../data/business";
+---
+
+<BaseLayout title="Страницата не е намерена | DEMONT" description="Търсената страница не съществува." noindex>
+  <section class="legal">
+    <div class="wrap legal-prose">
+      <h1>Тази страница не съществува.</h1>
+      <p>Върнете се към услугите или се обадете, ако търсите демонтаж на обект.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="/">Към началото</a>
+        <a class="btn btn-secondary" href={`tel:${business.phoneE164}`}>Обадете се</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

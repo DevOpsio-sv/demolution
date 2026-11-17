@@ -1,0 +1,19 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { business } from "../data/business";
+---
+
+<BaseLayout title="Запитването е прието | DEMONT" description="Потвърждение след изпратено запитване за демонтаж." noindex>
+  <section class="legal">
+    <div class="wrap legal-prose">
+      <h1>Ако току-що изпратихте запитването, то е прието.</h1>
+      <p>
+        Ще се свържем по телефона, който посочихте. Ако сте отворили страницата директно или не сте сигурни, че формата е минала, обадете се.
+      </p>
+      <div class="actions">
+        <a class="btn btn-primary" href={`tel:${business.phoneE164}`}>Обадете се · {business.phoneDisplay}</a>
+        <a class="btn btn-secondary" href="/#kontakt">Ново запитване</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

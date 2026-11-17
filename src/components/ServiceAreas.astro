@@ -1,0 +1,35 @@
+---
+import { areas } from "../data/business";
+---
+
+<section class="section areas" id="rayoni" aria-labelledby="rayoni-title">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="kicker">06 / Райони</p>
+        <h2 id="rayoni-title">Обслужваме три области в България.</h2>
+        <p> 
+        Работим в София, Ловеч, Плевен и населените места в съответните области. За обекти извън тези райони можете да отправите индивидуално запитване.
+        </p>
+      </div>     
+    </div>
+    {
+      areas.map((area, index) => (
+        <article class:list={["area", { "area-flip": index === 1 }]}>
+          <h3 class="area-title">
+            {area.title}
+            <span>{area.suffix}</span>
+          </h3>
+          <div>
+            <p>{area.text}</p>
+            {"subtext" in area && <p class="area-subtext">{area.subtext}</p>}
+          </div>
+        </article>
+      ))
+    }
+    <div class="area-close">
+      <p>Вашето населено място не е посочено? Свържете се с нас.</p>
+      <a class="btn btn-primary" href="#kontakt">Проверете възможностите</a>
+    </div>
+  </div>
+</section>

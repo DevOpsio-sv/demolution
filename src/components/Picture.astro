@@ -1,0 +1,34 @@
+---
+import type { Photo } from "../data/photos";
+
+interface Props {
+  photo: Photo;
+  sizes: string;
+  priority?: boolean;
+  mark?: string;
+  active?: boolean;
+  altOverride?: string;
+  class?: string;
+}
+
+const { photo, sizes, priority = false, mark, active = false, altOverride, class: className } = Astro.props;
+const alt = altOverride ?? (active || !mark ? photo.alt : "");
+---
+
+<picture class={className}>
+  <source type="image/avif" srcset={photo.avif} sizes={sizes} />
+  <source type="image/webp" srcset={photo.webp} sizes={sizes} />
+  <img
+    src={photo.src}
+    alt={alt}
+    width={photo.width}
+    height={photo.height}
+    loading={priority ? "eager" : "lazy"}
+    decoding="async"
+    fetchpriority={priority ? "high" : undefined}
+    data-for={mark}
+    data-alt={photo.alt}
+    class:list={{ "is-active": active }}
+    aria-hidden={mark && !active ? "true" : undefined}
+  />
+</picture>

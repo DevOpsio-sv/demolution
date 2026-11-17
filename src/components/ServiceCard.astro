@@ -1,0 +1,19 @@
+---
+import type { Service } from "../data/services";
+
+interface Props {
+  service: Service;
+}
+
+const { service } = Astro.props;
+---
+
+<article class="service-row" data-service={service.photo}>
+  <p class="service-num">{service.number}</p>
+  <div>
+    <h3>{service.title}</h3>
+    <p>{service.summary}</p>
+    <p class="service-detail">{service.detail}</p>
+    <a href="#kontakt" data-fill-service={service.inquiry}>Запитване за тази услуга</a>
+  </div>
+</article>

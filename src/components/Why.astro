@@ -1,0 +1,35 @@
+---
+import Picture from "./Picture.astro";
+import { photo } from "../data/photos";
+
+const points = [
+  "План според конкретната конструкция, а не един и същ подход за всеки обект.",
+  "Контролиран демонтаж там, където тежката машина не е подходяща.",
+  "Ясна уговорка за обхват, достъп и отпадъци преди започване.",
+  "Внимание към съседни сгради, огради и улици.",
+  "Цена и следващи стъпки се обсъждат след оглед.",
+];
+---
+
+<section class="section why" aria-labelledby="why-title">
+  <div class="wrap why-grid">
+    <div>
+      <p class="kicker kicker-light">07 / Подход</p>
+      <h2 id="why-title">Демонтажът изисква повече от сила</h2>
+      <figure class="why-photo">
+        <Picture photo={photo("masonry")} sizes="(min-width: 1000px) 40vw, 100vw" />
+        <figcaption>Илюстративна снимка на каменна основа. Не е изпълнен обект.</figcaption>
+      </figure>
+    </div>
+    <ol class="why-list">
+      {
+        points.map((point, index) => (
+          <li>
+            <span>{String(index + 1).padStart(2, "0")}</span>
+            <p>{point}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>

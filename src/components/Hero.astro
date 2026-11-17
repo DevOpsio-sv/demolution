@@ -1,0 +1,31 @@
+---
+import Picture from "./Picture.astro";
+import { business } from "../data/business";
+import { photo } from "../data/photos";
+
+const hero = photo("hero");
+---
+
+<section class="hero" id="nachalo" aria-labelledby="hero-title">
+  <div class="hero-copy">
+    <p class="kicker">01 / Прецизен демонтаж</p>
+    <div>
+      <h1 id="hero-title">
+        <span>Събаряне и демонтаж.</span>
+        <span>Работа с точен план.</span>
+      </h1>
+      <p class="lede">
+        Разрушаване на стари постройки, демонтаж на покриви, стени и конструкции. Обслужваме София, Ловеч, Плевен и околните населени места.
+      </p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#kontakt">Поискайте оферта</a>
+        <a class="btn btn-secondary" href={`tel:${business.phoneE164}`}>Обадете се</a>
+      </div>
+    </div>
+    <p class="geo">София <span>/</span> Ловеч <span>/</span> Плевен</p>
+  </div>
+  <div class="hero-media">
+    <Picture photo={hero} sizes="(min-width: 1000px) 58vw, 100vw" priority />
+    <p class="shot-label">Илюстративна снимка</p>
+  </div>
+</section>

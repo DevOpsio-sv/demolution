@@ -1,0 +1,31 @@
+---
+import { areas, business, navigation } from "../data/business";
+import { imageCredits } from "../data/credits";
+
+const path = Astro.url.pathname.replace(/\/$/, "") || "/";
+const home = path === "/";
+const hrefFor = (hash: string) => (home ? hash : `/${hash}`);
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="footer-main">
+    <div class="footer-brand">
+      <a class="logo" href="/">
+        <span class="logo-mark" aria-hidden="true"></span>
+        <span class="logo-word">{business.provisionalName}</span>
+      </a>     
+    </div>
+    <nav class="footer-nav" aria-label="Долна навигация">
+      {navigation.map((item) => <a href={hrefFor(item.href)}>{item.label}</a>)}
+    </nav>  
+  </div>
+  <div class="footer-bar">
+    <p>© {year} {business.provisionalName}. Всички права запазени.</p>
+    {business.legalName ? <p>{business.legalName}</p> : null}
+    <nav class="footer-legal" aria-label="Правна информация">
+      <a href="/poveritelnost">Политика за поверителност</a>
+      <a href="/biskvitki">Бисквитки и съхранение</a>
+    </nav>
+  </div> 
+</footer>

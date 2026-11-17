@@ -1,0 +1,99 @@
+@import "./tokens.css";
+@import "./components.css";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header) + 0.75rem);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Manrope Variable", "Segoe UI", sans-serif;
+  font-size: var(--step-0);
+  font-weight: 450;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+  overflow-wrap: break-word;
+  overflow-x: clip;
+}
+
+body:has(.menu[open]) {
+  overflow: hidden;
+}
+
+img,
+picture,
+svg {
+  max-width: 100%;
+  min-width: 0;
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+p {
+  text-wrap: pretty;
+}
+
+h1,
+h2,
+h3 {
+  hyphens: manual;
+  font-weight: 620;
+  letter-spacing: -0.042em;
+  line-height: 0.98;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+ol,
+figure {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+::selection {
+  background: var(--bg-dark);
+  color: var(--text-inverse);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

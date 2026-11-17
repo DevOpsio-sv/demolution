@@ -1,0 +1,47 @@
+---
+import { business, navigation } from "../data/business";
+
+const path = Astro.url.pathname.replace(/\/$/, "") || "/";
+const home = path === "/";
+const hrefFor = (hash: string) => (home ? hash : `/${hash}`);
+---
+
+<header class="site-header">
+  <div class="bar">
+    <a class="logo" href={home ? "#nachalo" : "/"}>
+      <span class="logo-mark" aria-hidden="true"></span>
+      <span class="logo-word">{business.provisionalName}</span>
+    </a>
+    <nav class="desktop-nav" aria-label="Основна навигация">
+      {
+        navigation.map((item) => (
+          <a href={hrefFor(item.href)} data-nav>
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+    <a class="btn btn-primary header-call" href={`tel:${business.phoneE164}`}>
+      <span>Обадете се</span>
+      <span class="header-number">{business.phoneDisplay}</span>
+    </a>
+    <details class="menu">
+      <summary>
+        <span class="menu-open">Меню</span>
+        <span class="menu-close">Затвори</span>
+      </summary>
+      <div class="menu-panel">
+        <nav aria-label="Мобилна навигация">
+          {
+            navigation.map((item) => (
+              <a href={hrefFor(item.href)} data-nav>
+                {item.label}
+              </a>
+            ))
+          }
+          <a href={`tel:${business.phoneE164}`}>{business.phoneDisplay}</a>
+        </nav>
+      </div>
+    </details>
+  </div>
+</header>

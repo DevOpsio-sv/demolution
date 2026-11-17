@@ -1,0 +1,46 @@
+---
+import Picture from "./Picture.astro";
+import { projects, projectsIntro } from "../data/projects";
+import { photo } from "../data/photos";
+---
+
+<section class="section projects" id="proekti" aria-labelledby="proekti-title">
+  <div class="wrap">
+    <p class="kicker">05 / Обекти</p>
+    <h2 id="proekti-title">Завършени обекти</h2>
+    <p class="project-note">{projectsIntro}</p>
+    <div class="project-grid">
+      {
+        projects.map((item, index) => {
+          const image = photo(item.photo);
+          return (
+            <article class:list={["project", { "project-lead": index === 0 }]}>
+              <a
+                class="project-link"
+                href={image.src}
+                data-alt={image.alt}
+                data-caption={`${item.caption} ${item.service}.`}
+              >
+                <Picture
+                  photo={image}
+                  sizes={index === 0 ? "(min-width: 1000px) 58vw, 100vw" : "(min-width: 1000px) 30vw, 100vw"}
+                  altOverride=""
+                />
+                <span class="project-copy">
+                  <h3>{item.title}</h3>
+                  <p class="caption-meta">{item.service}</p>
+                  <p>{item.caption}</p>
+                </span>
+              </a>
+            </article>
+          );
+        })
+      }
+    </div>
+  </div>
+  <dialog id="viewer">
+    <button class="viewer-close" type="button" data-close>Затвори</button>
+    <img alt="" width="1600" height="1000" />
+    <p></p>
+  </dialog>
+</section>

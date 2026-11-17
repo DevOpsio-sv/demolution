@@ -1,0 +1,101 @@
+{
+  "hero": {
+    "id": "hero",
+    "alt": "Стара кирпичена и каменна стопанска постройка с повреден покрив и стена. Илюстративна снимка, не е изпълнен обект.",
+    "width": 1280,
+    "height": 960,
+    "src": "/images/demontazh-stara-postroika-1280.webp",
+    "avif": "/images/demontazh-stara-postroika-800.avif 800w, /images/demontazh-stara-postroika-1280.avif 1280w",
+    "webp": "/images/demontazh-stara-postroika-800.webp 800w, /images/demontazh-stara-postroika-1280.webp 1280w"
+  },
+  "farm": {
+    "id": "farm",
+    "alt": "Стара плетена стопанска постройка с кирпич и дървена конструкция. Илюстративна снимка, не е изпълнен обект.",
+    "width": 1400,
+    "height": 1050,
+    "src": "/images/sabaryane-stopanska-sgrada-1400.webp",
+    "avif": "/images/sabaryane-stopanska-sgrada-800.avif 800w, /images/sabaryane-stopanska-sgrada-1400.avif 1400w",
+    "webp": "/images/sabaryane-stopanska-sgrada-800.webp 800w, /images/sabaryane-stopanska-sgrada-1400.webp 1400w"
+  },
+  "woven": {
+    "id": "woven",
+    "alt": "Преди и след: стара плетена стопанска постройка с кирпич и камък, и същото място след премахването ѝ.",
+    "width": 1024,
+    "height": 769,
+    "src": "/images/plet-kirpich-predi-sled-1024.webp",
+    "avif": "/images/plet-kirpich-predi-sled-800.avif 800w, /images/plet-kirpich-predi-sled-1024.avif 1024w",
+    "webp": "/images/plet-kirpich-predi-sled-800.webp 800w, /images/plet-kirpich-predi-sled-1024.webp 1024w"
+  },
+  "shed": {
+    "id": "shed",
+    "alt": "Преди и след: малък гараж с дървен покрив и метални врати, и същата постройка след премахване на покрива и вратите.",
+    "width": 508,
+    "height": 1024,
+    "src": "/images/garazh-predi-sled-508.webp",
+    "avif": "/images/garazh-predi-sled-508.avif 508w",
+    "webp": "/images/garazh-predi-sled-508.webp 508w"
+  },
+  "wall": {
+    "id": "wall",
+    "alt": "Преди и след: каменна стена с дървена стреха и същото място след събарянето ѝ.",
+    "width": 824,
+    "height": 1024,
+    "src": "/images/zid-predi-sled-824.webp",
+    "avif": "/images/zid-predi-sled-800.avif 800w, /images/zid-predi-sled-824.avif 824w",
+    "webp": "/images/zid-predi-sled-800.webp 800w, /images/zid-predi-sled-824.webp 824w"
+  },
+  "masonry": {
+    "id": "masonry",
+    "alt": "Каменна основа и дървена врата на стара стопанска постройка. Илюстративна снимка, не е изпълнен обект.",
+    "width": 1400,
+    "height": 503,
+    "src": "/images/zidariya-kamen-1400.webp",
+    "avif": "/images/zidariya-kamen-800.avif 800w, /images/zidariya-kamen-1400.avif 1400w",
+    "webp": "/images/zidariya-kamen-800.webp 800w, /images/zidariya-kamen-1400.webp 1400w"
+  },
+  "roof": {
+    "id": "roof",
+    "alt": "Преди и след: керемиден покрив на стара къща и същата сграда след сваляне на покривната конструкция.",
+    "width": 508,
+    "height": 1024,
+    "src": "/images/pokriv-predi-sled-508.webp",
+    "avif": "/images/pokriv-predi-sled-508.avif 508w",
+    "webp": "/images/pokriv-predi-sled-508.webp 508w"
+  },
+  "timber": {
+    "id": "timber",
+    "alt": "Преди и след: дървена рамка с пълнеж от сено в стената на стара постройка, и същият отвор след премахването на рамката.",
+    "width": 508,
+    "height": 1024,
+    "src": "/images/darven-otvor-predi-sled-508.webp",
+    "avif": "/images/darven-otvor-predi-sled-508.avif 508w",
+    "webp": "/images/darven-otvor-predi-sled-508.webp 508w"
+  },
+  "interior": {
+    "id": "interior",
+    "alt": "Отвор към вътрешността на стара постройка с дървена рамка. Илюстративна снимка, не е изпълнен обект.",
+    "width": 1200,
+    "height": 1037,
+    "src": "/images/vatreshen-otvor-1200.webp",
+    "avif": "/images/vatreshen-otvor-800.avif 800w, /images/vatreshen-otvor-1200.avif 1200w",
+    "webp": "/images/vatreshen-otvor-800.webp 800w, /images/vatreshen-otvor-1200.webp 1200w"
+  },
+  "wide": {
+    "id": "wide",
+    "alt": "Преди и след: стара тухлена постройка на два етажа с разкрит покрив, и същото място след премахването ѝ.",
+    "width": 1024,
+    "height": 512,
+    "src": "/images/tuhlena-postroika-predi-sled-1024.webp",
+    "avif": "/images/tuhlena-postroika-predi-sled-720.avif 720w, /images/tuhlena-postroika-predi-sled-1024.avif 1024w",
+    "webp": "/images/tuhlena-postroika-predi-sled-720.webp 720w, /images/tuhlena-postroika-predi-sled-1024.webp 1024w"
+  },
+  "fence": {
+    "id": "fence",
+    "alt": "Преди и след: бетонна ограда с декоративни пана и зелена метална врата, и същият двор след премахването ѝ.",
+    "width": 1024,
+    "height": 512,
+    "src": "/images/ograda-predi-sled-1024.webp",
+    "avif": "/images/ograda-predi-sled-720.avif 720w, /images/ograda-predi-sled-1024.avif 1024w",
+    "webp": "/images/ograda-predi-sled-720.webp 720w, /images/ograda-predi-sled-1024.webp 1024w"
+  }
+}

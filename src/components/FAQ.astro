@@ -1,0 +1,26 @@
+---
+import { faq } from "../data/faq";
+---
+
+<section class="section faq" id="vaprosi" aria-labelledby="vaprosi-title">
+  <div class="wrap faq-layout">
+    <div class="faq-intro">
+      <p class="kicker">08 / Въпроси</p>
+      <h2 id="vaprosi-title">Въпроси преди началото</h2>
+      <p class="measure">Кратки отговори за цена, начин на работа, отпадъци и извозване. За конкретния обект говорим след оглед.</p>
+    </div>
+    <div class="faq-list">
+      {
+        faq.map((item, index) => (
+          <details class="faq-item" name="faq" open={index === 0}>
+            <summary>
+              <h3>{item.question}</h3>
+              <span class="faq-icon" aria-hidden="true"></span>
+            </summary>
+            <p>{item.answer}</p>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>

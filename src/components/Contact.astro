@@ -1,0 +1,64 @@
+---
+import { business, areas } from "../data/business";
+import { serviceOptions } from "../lib/lead";
+---
+
+<section class="contact" id="kontakt" aria-labelledby="kontakt-title">
+  <div class="contact-intro">
+    <p class="kicker kicker-light">09 / Контакт</p>
+    <h2 id="kontakt-title">Имате обект за демонтаж?</h2>
+    <p>
+      Опишете какво трябва да бъде премахнато и къде се намира. Ще обсъдим възможностите и необходимите следващи стъпки.
+    </p>
+    <a class="phone" href={`tel:${business.phoneE164}`}>{business.phoneDisplay}</a>
+    <p class="contact-meta">
+      {areas.map((area) => `${area.title} ${area.suffix}`).join(" · ")}
+    </p>
+    <div class="actions">
+      <a class="btn btn-primary" href={`tel:${business.phoneE164}`}>Обадете се</a>
+      <a class="btn btn-secondary" href={business.viberHref}>Изпратете снимки във Viber</a>
+    </div>
+    <p class="contact-meta">Viber отваря приложението, ако е инсталирано.</p>
+  </div>
+  <div class="contact-form">
+    <form id="lead-form" action="/api/contact" method="post" accept-charset="utf-8">
+      <div class="form-grid">
+        <div class="field">
+          <label for="name">Име</label>
+          <input id="name" name="name" type="text" autocomplete="name" required maxlength="80" />
+        </div>
+        <div class="field">
+          <label for="phone">Телефон</label>
+          <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required maxlength="24" />
+        </div>
+        <div class="field field-wide">
+          <label for="place">Населено място</label>
+          <input id="place" name="place" type="text" autocomplete="address-level2" required maxlength="80" />
+        </div>
+        <div class="field field-wide">
+          <label for="service">Какво трябва да бъде демонтирано?</label>
+          <select id="service" name="service" required>
+            <option value="">Изберете</option>
+            {serviceOptions.map((option) => <option value={option}>{option}</option>)}
+          </select>
+        </div>
+        <div class="field field-wide">
+          <label for="message">Кратко описание</label>
+          <textarea id="message" name="message" required minlength="10" maxlength="2000"></textarea>
+        </div>
+      </div>
+      <div class="hp" aria-hidden="true">
+        <label for="company_website">Уебсайт</label>
+        <input id="company_website" name="company_website" type="text" tabindex="-1" autocomplete="off" />
+      </div>
+      <input type="hidden" name="started" value="" />
+      <div class="actions">
+        <button class="btn btn-primary" type="submit">Изпратете запитване</button>
+      </div>
+      <p class="form-note">
+        Формулярът не приема файлове. Снимки можеете да изпратите във Вайбър. При затруднения, обадете се на {business.phoneDisplay}.
+      </p>
+      <p class="form-status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>

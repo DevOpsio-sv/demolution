@@ -1,0 +1,38 @@
+---
+import ServiceCard from "./ServiceCard.astro";
+import Picture from "./Picture.astro";
+import { services } from "../data/services";
+import { photo } from "../data/photos";
+---
+
+<section class="section services" id="uslugi" aria-labelledby="uslugi-title">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="kicker">03 / Услуги</p>
+        <h2 id="uslugi-title">Какво можем да демонтираме</h2>
+      </div>
+      <p class="measure">
+        Работим ръчно и контролирано. Не изпълняваме тежко машинно събаряне без оглед и нужните съгласувания.
+      </p>
+    </div>
+    <div class="services-layout">
+      <div class="service-list">
+        {services.map((service) => <ServiceCard service={service} />)}
+      </div>
+      <div class="service-stage">
+        {
+          services.map((service, index) => (
+            <Picture
+              photo={photo(service.photo)}
+              sizes="(min-width: 1000px) 36vw, 100vw"
+              mark={service.photo}
+              active={index === 0}
+            />
+          ))
+        }
+        <p class="stage-note">Кадри от завършени обекти.</p>
+      </div>
+    </div>
+  </div>
+</section>
