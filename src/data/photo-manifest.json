@@ -8,14 +8,23 @@
     "avif": "/images/demontazh-stara-postroika-800.avif 800w, /images/demontazh-stara-postroika-1280.avif 1280w",
     "webp": "/images/demontazh-stara-postroika-800.webp 800w, /images/demontazh-stara-postroika-1280.webp 1280w"
   },
+  "heroAfter": {
+    "id": "heroAfter",
+    "alt": "Разчистен терен с каменна стена, дървета и хълмове. Илюстративна снимка.",
+    "width": 1024,
+    "height": 903,
+    "src": "/images/razchisten-teren-1024.webp",
+    "avif": "/images/razchisten-teren-800.avif 800w, /images/razchisten-teren-1024.avif 1024w",
+    "webp": "/images/razchisten-teren-800.webp 800w, /images/razchisten-teren-1024.webp 1024w"
+  },
   "farm": {
     "id": "farm",
-    "alt": "Стара плетена стопанска постройка с кирпич и дървена конструкция. Илюстративна снимка, не е изпълнен обект.",
-    "width": 1400,
-    "height": 1050,
-    "src": "/images/sabaryane-stopanska-sgrada-1400.webp",
-    "avif": "/images/sabaryane-stopanska-sgrada-800.avif 800w, /images/sabaryane-stopanska-sgrada-1400.avif 1400w",
-    "webp": "/images/sabaryane-stopanska-sgrada-800.webp 800w, /images/sabaryane-stopanska-sgrada-1400.webp 1400w"
+    "alt": "Преди и след: стара стопанска постройка от камък и тухла с керемиден покрив, и същото място след премахването ѝ.",
+    "width": 819,
+    "height": 1024,
+    "src": "/images/stopanska-predi-sled-819.webp",
+    "avif": "/images/stopanska-predi-sled-819.avif 819w",
+    "webp": "/images/stopanska-predi-sled-819.webp 819w"
   },
   "woven": {
     "id": "woven",
@@ -44,14 +53,14 @@
     "avif": "/images/zid-predi-sled-800.avif 800w, /images/zid-predi-sled-824.avif 824w",
     "webp": "/images/zid-predi-sled-800.webp 800w, /images/zid-predi-sled-824.webp 824w"
   },
-  "masonry": {
-    "id": "masonry",
-    "alt": "Каменна основа и дървена врата на стара стопанска постройка. Илюстративна снимка, не е изпълнен обект.",
-    "width": 1400,
-    "height": 503,
-    "src": "/images/zidariya-kamen-1400.webp",
-    "avif": "/images/zidariya-kamen-800.avif 800w, /images/zidariya-kamen-1400.avif 1400w",
-    "webp": "/images/zidariya-kamen-800.webp 800w, /images/zidariya-kamen-1400.webp 1400w"
+  "approach": {
+    "id": "approach",
+    "alt": "Двама работници разбиват каменна стена с кирка и лост при ръчен демонтаж на стара постройка.",
+    "width": 895,
+    "height": 1024,
+    "src": "/images/rachen-demontazh-895.webp",
+    "avif": "/images/rachen-demontazh-640.avif 640w, /images/rachen-demontazh-895.avif 895w",
+    "webp": "/images/rachen-demontazh-640.webp 640w, /images/rachen-demontazh-895.webp 895w"
   },
   "roof": {
     "id": "roof",
@@ -73,12 +82,12 @@
   },
   "interior": {
     "id": "interior",
-    "alt": "Отвор към вътрешността на стара постройка с дървена рамка. Илюстративна снимка, не е изпълнен обект.",
-    "width": 1200,
-    "height": 1037,
-    "src": "/images/vatreshen-otvor-1200.webp",
-    "avif": "/images/vatreshen-otvor-800.avif 800w, /images/vatreshen-otvor-1200.avif 1200w",
-    "webp": "/images/vatreshen-otvor-800.webp 800w, /images/vatreshen-otvor-1200.webp 1200w"
+    "alt": "Преди и след: жилищно помещение с преградна стена и старо обзавеждане, и същото помещение след премахването им.",
+    "width": 819,
+    "height": 1024,
+    "src": "/images/vatreshen-predi-sled-819.webp",
+    "avif": "/images/vatreshen-predi-sled-819.avif 819w",
+    "webp": "/images/vatreshen-predi-sled-819.webp 819w"
   },
   "wide": {
     "id": "wide",

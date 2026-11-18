@@ -1,5 +1,7 @@
 ---
 import { areas } from "../data/business";
+
+const defaultArea = "lovech";
 ---
 
 <section class="section areas" id="rayoni" aria-labelledby="rayoni-title">
@@ -13,23 +15,132 @@ import { areas } from "../data/business";
         </p>
       </div>     
     </div>
-    {
-      areas.map((area, index) => (
-        <article class:list={["area", { "area-flip": index === 1 }]}>
-          <h3 class="area-title">
-            {area.title}
-            <span>{area.suffix}</span>
-          </h3>
-          <div>
-            <p>{area.text}</p>
-            {"subtext" in area && <p class="area-subtext">{area.subtext}</p>}
-          </div>
-        </article>
-      ))
-    }
+    <div class="area-tabs" role="tablist" aria-orientation="horizontal" aria-label="Райони">
+      {
+        areas.map((area, index) => {
+          const selected = area.id === defaultArea;
+          const tabId = `rayon-tab-${area.id}`;
+          const panelId = `rayon-panel-${area.id}`;
+          return (
+            <button
+              type="button"
+              class="area-tab"
+              role="tab"
+              id={tabId}
+              aria-selected={selected ? "true" : "false"}
+              aria-controls={panelId}
+              tabindex={selected ? 0 : -1}
+            >
+              <span class="area-tab-index">{String(index + 1).padStart(2, "0")}</span>
+              <span class="area-tab-name">{area.title}</span>
+            </button>
+          );
+        })
+      }
+    </div>
+    <div class="area-stage">
+      {
+        areas.map((area) => {
+          const selected = area.id === defaultArea;
+          const tabId = `rayon-tab-${area.id}`;
+          const panelId = `rayon-panel-${area.id}`;
+          return (
+            <div
+              class:list={["area-panel", { "is-active": selected }]}
+              role="tabpanel"
+              id={panelId}
+              aria-labelledby={tabId}
+              aria-hidden={selected ? "false" : "true"}
+              tabindex={selected ? 0 : -1}
+              inert={!selected}
+            >
+              <h3 class="area-panel-title">
+                {area.title}
+                <span>{area.suffix}</span>
+              </h3>
+              <p>{area.text}</p>
+              {"subtext" in area && <p class="area-subtext">{area.subtext}</p>}
+            </div>
+          );
+        })
+      }
+    </div>
     <div class="area-close">
       <p>Вашето населено място не е посочено? Свържете се с нас.</p>
       <a class="btn btn-primary" href="#kontakt">Проверете възможностите</a>
     </div>
   </div>
 </section>
+
+<script>
+  const root = document.querySelector<HTMLElement>("#rayoni");
+  const stage = root?.querySelector<HTMLElement>(".area-stage");
+  const tablist = root?.querySelector<HTMLElement>('[role="tablist"]');
+
+  if (root && stage && tablist && root.dataset.areasBound !== "true") {
+    root.dataset.areasBound = "true";
+    stage.classList.add("is-animated");
+
+    const tabs = [...tablist.querySelectorAll<HTMLButtonElement>('[role="tab"]')];
+    const panels = [...stage.querySelectorAll<HTMLElement>('[role="tabpanel"]')];
+    let leaving: HTMLElement | null = null;
+    let leaveTimer = 0;
+
+    const select = (nextTab: HTMLButtonElement, focus = false) => {
+      const nextPanel = panels.find((panel) => panel.id === nextTab.getAttribute("aria-controls"));
+      if (!nextPanel || nextPanel.classList.contains("is-active")) {
+        if (focus) nextTab.focus();
+        return;
+      }
+
+      for (const tab of tabs) {
+        const on = tab === nextTab;
+        tab.setAttribute("aria-selected", on ? "true" : "false");
+        tab.tabIndex = on ? 0 : -1;
+      }
+
+      if (leaving && leaving !== nextPanel) leaving.classList.remove("is-leaving");
+
+      const current = panels.find((panel) => panel.classList.contains("is-active"));
+      if (current) {
+        current.classList.remove("is-active");
+        current.classList.add("is-leaving");
+        current.setAttribute("aria-hidden", "true");
+        current.inert = true;
+        current.tabIndex = -1;
+        leaving = current;
+      }
+
+      nextPanel.classList.remove("is-leaving");
+      nextPanel.classList.add("is-active");
+      nextPanel.setAttribute("aria-hidden", "false");
+      nextPanel.inert = false;
+      nextPanel.tabIndex = 0;
+
+      if (focus) nextTab.focus();
+
+      window.clearTimeout(leaveTimer);
+      leaveTimer = window.setTimeout(() => {
+        leaving?.classList.remove("is-leaving");
+        leaving = null;
+      }, 400);
+    };
+
+    for (const tab of tabs) tab.addEventListener("click", () => select(tab));
+
+    tablist.addEventListener("keydown", (event: KeyboardEvent) => {
+      const index = tabs.findIndex((tab) => tab === document.activeElement);
+      if (index < 0) return;
+
+      let nextIndex = -1;
+      if (event.key === "ArrowRight") nextIndex = (index + 1) % tabs.length;
+      else if (event.key === "ArrowLeft") nextIndex = (index - 1 + tabs.length) % tabs.length;
+      else if (event.key === "Home") nextIndex = 0;
+      else if (event.key === "End") nextIndex = tabs.length - 1;
+      else return;
+
+      event.preventDefault();
+      select(tabs[nextIndex], true);
+    });
+  }
+</script>

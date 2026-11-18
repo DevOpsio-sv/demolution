@@ -5,14 +5,27 @@ interface Props {
   photo: Photo;
   sizes: string;
   priority?: boolean;
+  eager?: boolean;
+  decorative?: boolean;
   mark?: string;
   active?: boolean;
   altOverride?: string;
   class?: string;
 }
 
-const { photo, sizes, priority = false, mark, active = false, altOverride, class: className } = Astro.props;
-const alt = altOverride ?? (active || !mark ? photo.alt : "");
+const {
+  photo,
+  sizes,
+  priority = false,
+  eager = false,
+  decorative = false,
+  mark,
+  active = false,
+  altOverride,
+  class: className,
+} = Astro.props;
+const alt = decorative ? "" : (altOverride ?? (active || !mark ? photo.alt : ""));
+const hidden = decorative || Boolean(mark && !active);
 ---
 
 <picture class={className}>
@@ -23,12 +36,12 @@ const alt = altOverride ?? (active || !mark ? photo.alt : "");
     alt={alt}
     width={photo.width}
     height={photo.height}
-    loading={priority ? "eager" : "lazy"}
+    loading={priority || eager ? "eager" : "lazy"}
     decoding="async"
     fetchpriority={priority ? "high" : undefined}
     data-for={mark}
     data-alt={photo.alt}
     class:list={{ "is-active": active }}
-    aria-hidden={mark && !active ? "true" : undefined}
+    aria-hidden={hidden ? "true" : undefined}
   />
 </picture>

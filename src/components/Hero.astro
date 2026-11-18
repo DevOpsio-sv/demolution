@@ -3,7 +3,9 @@ import Picture from "./Picture.astro";
 import { business } from "../data/business";
 import { photo } from "../data/photos";
 
-const hero = photo("hero");
+const before = photo("hero");
+const after = photo("heroAfter");
+const sizes = "(min-width: 1000px) 58vw, 100vw";
 ---
 
 <section class="hero" id="nachalo" aria-labelledby="hero-title">
@@ -25,7 +27,36 @@ const hero = photo("hero");
     <p class="geo">София <span>/</span> Ловеч <span>/</span> Плевен</p>
   </div>
   <div class="hero-media">
-    <Picture photo={hero} sizes="(min-width: 1000px) 58vw, 100vw" priority />
-    <p class="shot-label">Илюстративна снимка</p>
+    <div class="hero-compare" data-hero-compare>
+      <div class="hero-compare-frame">
+        <Picture photo={before} sizes={sizes} priority class="hero-shot hero-shot-before" />
+        <Picture photo={after} sizes={sizes} eager decorative class="hero-shot hero-shot-after" />
+        <svg class="hero-seam" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <line data-seam-shadow x1="100" y1="0" x2="100" y2="100" />
+          <line data-seam x1="100" y1="0" x2="100" y2="100" />
+        </svg>
+        <p class="hero-compare-label hero-compare-before" aria-hidden="true">Преди</p>
+        <p class="hero-compare-label hero-compare-after" aria-hidden="true">След</p>
+      </div>
+      <p id="hero-compare-help" class="visually-hidden">
+        Хоризонтално плъзгане или стрелките местят границата между двете снимки.
+      </p>
+      <input
+        class="hero-compare-slider"
+        type="range"
+        min="0"
+        max="100"
+        step="1"
+        value="0"
+        disabled
+        aria-label="Сравнение преди и след"
+        aria-describedby="hero-compare-help"
+        aria-valuetext="0% след"
+      />
+    </div>
   </div>
 </section>
+
+<script>
+  import "../scripts/hero-reveal.ts";
+</script>

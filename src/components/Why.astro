@@ -13,14 +13,14 @@ const points = [
 
 <section class="section why" aria-labelledby="why-title">
   <div class="wrap why-grid">
-    <div>
+    <div class="why-copy">
       <p class="kicker kicker-light">07 / Подход</p>
       <h2 id="why-title">Демонтажът изисква повече от сила</h2>
-      <figure class="why-photo">
-        <Picture photo={photo("masonry")} sizes="(min-width: 1000px) 40vw, 100vw" />
-        <figcaption>Илюстративна снимка на каменна основа. Не е изпълнен обект.</figcaption>
-      </figure>
     </div>
+    <figure class="why-photo">
+      <Picture photo={photo("approach")} sizes="(min-width: 1000px) 42vw, 100vw" />
+      <figcaption>Ръчен демонтаж на каменна зидария.</figcaption>
+    </figure>
     <ol class="why-list">
       {
         points.map((point, index) => (

@@ -11,9 +11,11 @@ const sources = {
     file: path.join(rawDir, "barn-leskovdol-old.jpg"),
     url: "https://upload.wikimedia.org/wikipedia/commons/1/13/Old-barn-leskovdol.jpg",
   },
-  wattle: {
-    file: path.join(rawDir, "barn-leskovdol.jpg"),
-    url: "https://upload.wikimedia.org/wikipedia/commons/c/ce/Barn-Leskovdol.jpg",
+  cleared: {
+    file: path.join(root, "assets", "photos", "razchisten-teren.jpg"),
+  },
+  farmBuilding: {
+    file: path.join(root, "assets", "photos", "stopanska-predi-sled.jpg"),
   },
   woven: {
     file: path.join(root, "assets", "photos", "plet-kirpich-predi-sled.jpg"),
@@ -21,6 +23,9 @@ const sources = {
   detail: {
     file: path.join(rawDir, "chiprovtsi.jpg"),
     url: "https://upload.wikimedia.org/wikipedia/commons/2/28/Montana_Province_-_Chiprovtsi_Municipality_-_Town_of_Chiprovtsi_-_%284%29.jpg",
+  },
+  interiorPhoto: {
+    file: path.join(root, "assets", "photos", "vatreshen-predi-sled.jpg"),
   },
   timber: {
     file: path.join(root, "assets", "photos", "darven-otvor-predi-sled.jpg"),
@@ -40,6 +45,9 @@ const sources = {
   fence: {
     file: path.join(root, "assets", "photos", "ograda-predi-sled.jpg"),
   },
+  approach: {
+    file: path.join(root, "assets", "photos", "rachen-demontazh.jpg"),
+  },
 };
 
 const jobs = [
@@ -51,11 +59,18 @@ const jobs = [
     alt: "Стара кирпичена и каменна стопанска постройка с повреден покрив и стена. Илюстративна снимка, не е изпълнен обект.",
   },
   {
+    id: "heroAfter",
+    file: "razchisten-teren",
+    source: "cleared",
+    widths: [800, 1024],
+    alt: "Разчистен терен с каменна стена, дървета и хълмове. Илюстративна снимка.",
+  },
+  {
     id: "farm",
-    file: "sabaryane-stopanska-sgrada",
-    source: "wattle",
-    widths: [800, 1400],
-    alt: "Стара плетена стопанска постройка с кирпич и дървена конструкция. Илюстративна снимка, не е изпълнен обект.",
+    file: "stopanska-predi-sled",
+    source: "farmBuilding",
+    widths: [819],
+    alt: "Преди и след: стара стопанска постройка от камък и тухла с керемиден покрив, и същото място след премахването ѝ.",
   },
   {
     id: "woven",
@@ -79,12 +94,11 @@ const jobs = [
     alt: "Преди и след: каменна стена с дървена стреха и същото място след събарянето ѝ.",
   },
   {
-    id: "masonry",
-    file: "zidariya-kamen",
-    source: "old",
-    widths: [800, 1400],
-    extract: { left: 0, top: 0.52, width: 1, height: 0.48 },
-    alt: "Каменна основа и дървена врата на стара стопанска постройка. Илюстративна снимка, не е изпълнен обект.",
+    id: "approach",
+    file: "rachen-demontazh",
+    source: "approach",
+    widths: [640, 895],
+    alt: "Двама работници разбиват каменна стена с кирка и лост при ръчен демонтаж на стара постройка.",
   },
   {
     id: "roof",
@@ -102,11 +116,10 @@ const jobs = [
   },
   {
     id: "interior",
-    file: "vatreshen-otvor",
-    source: "detail",
-    widths: [800, 1200],
-    extract: { left: 0.16, top: 0.08, width: 0.72, height: 0.84 },
-    alt: "Отвор към вътрешността на стара постройка с дървена рамка. Илюстративна снимка, не е изпълнен обект.",
+    file: "vatreshen-predi-sled",
+    source: "interiorPhoto",
+    widths: [819],
+    alt: "Преди и след: жилищно помещение с преградна стена и старо обзавеждане, и същото помещение след премахването им.",
   },
   {
     id: "wide",
