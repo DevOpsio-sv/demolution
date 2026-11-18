@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { business } from "../data/business";
 ---
 
-<BaseLayout title="Страницата не е намерена | DEMONT" description="Търсената страница не съществува." noindex>
+<BaseLayout title={`Страницата не е намерена | ${business.provisionalName}`} description="Търсената страница не съществува." noindex>
   <section class="legal">
     <div class="wrap legal-prose">
       <h1>Тази страница не съществува.</h1>

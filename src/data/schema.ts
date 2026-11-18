@@ -21,7 +21,7 @@ export function schemaGraph(site: string) {
         name: business.provisionalName,
         url: page,
         telephone: business.phoneE164,
-        logo: `${origin}/logo.svg`,
+        logo: `${origin}/razlom-logo.png`,
         description:
           "Събаряне на стари постройки и демонтаж на покриви, стени и конструкции в София, Ловеч, Плевен и околните населени места.",
         areaServed,

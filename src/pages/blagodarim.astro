@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { business } from "../data/business";
 ---
 
-<BaseLayout title="Запитването е прието | DEMONT" description="Потвърждение след изпратено запитване за демонтаж." noindex>
+<BaseLayout title={`Запитването е прието | ${business.provisionalName}`} description="Потвърждение след изпратено запитване за демонтаж." noindex>
   <section class="legal">
     <div class="wrap legal-prose">
       <h1>Ако току-що изпратихте запитването, то е прието.</h1>

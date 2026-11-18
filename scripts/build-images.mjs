@@ -1,6 +1,7 @@
 import { mkdir, writeFile, readFile } from "node:fs/promises";
 import path from "node:path";
 import sharp from "sharp";
+import { buildLogo } from "./build-logo.mjs";
 
 const root = process.cwd();
 const outDir = path.join(root, "public", "images");
@@ -223,10 +224,7 @@ await sharp(heroFile)
   .jpeg({ quality: 76, mozjpeg: true })
   .toFile(path.join(root, "public", "og.jpg"));
 
-await sharp(path.join(root, "public", "favicon.svg"))
-  .resize(180, 180)
-  .png()
-  .toFile(path.join(root, "public", "apple-touch-icon.png"));
+await buildLogo();
 
 await writeFile(path.join(root, "src", "data", "photo-manifest.json"), JSON.stringify(manifest, null, 2));
 console.log("wrote manifest and social image");

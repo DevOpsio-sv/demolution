@@ -1,5 +1,6 @@
 ---
 import { business, navigation } from "../data/business";
+import Logo from "./Logo.astro";
 
 const path = Astro.url.pathname.replace(/\/$/, "") || "/";
 const home = path === "/";
@@ -9,8 +10,7 @@ const hrefFor = (hash: string) => (home ? hash : `/${hash}`);
 <header class="site-header">
   <div class="bar">
     <a class="logo" href={home ? "#nachalo" : "/"}>
-      <span class="logo-mark" aria-hidden="true"></span>
-      <span class="logo-word">{business.provisionalName}</span>
+      <Logo />
     </a>
     <nav class="desktop-nav" aria-label="Основна навигация">
       {

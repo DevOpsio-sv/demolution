@@ -1,5 +1,6 @@
 export const business = {
-  provisionalName: "DEMONT",
+  provisionalName: "RAZLOM",
+  logoAlt: "RAZLOM — Събаряне на сгради и демонтаж",
   phoneDisplay: "0882 820025",
   phoneE164: "+359882820025",
   viberHref: "viber://chat?number=%2B359882820025",

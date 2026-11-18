@@ -1,0 +1,19 @@
+---
+import { business } from "../data/business";
+
+interface Props {
+  tone?: "default" | "on-dark";
+}
+
+const { tone = "default" } = Astro.props;
+const onDark = tone === "on-dark";
+---
+
+<img
+  class="logo-img"
+  src={onDark ? "/razlom-logo-on-dark.png" : "/razlom-logo.png"}
+  width="1018"
+  height="176"
+  alt={business.logoAlt}
+  decoding="async"
+/>
