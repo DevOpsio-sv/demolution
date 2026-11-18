@@ -2,6 +2,12 @@
 import { areas } from "../data/business";
 
 const defaultArea = "lovech";
+const areaOrder = ["lovech", "pleven", "sofia"] as const;
+const orderedAreas = areaOrder.map((id) => {
+  const area = areas.find((item) => item.id === id);
+  if (!area) throw new Error(`Missing service area: ${id}`);
+  return area;
+});
 ---
 
 <section class="section areas" id="rayoni" aria-labelledby="rayoni-title">
@@ -17,7 +23,7 @@ const defaultArea = "lovech";
     </div>
     <div class="area-tabs" role="tablist" aria-orientation="horizontal" aria-label="Райони">
       {
-        areas.map((area, index) => {
+        orderedAreas.map((area, index) => {
           const selected = area.id === defaultArea;
           const tabId = `rayon-tab-${area.id}`;
           const panelId = `rayon-panel-${area.id}`;
@@ -40,7 +46,7 @@ const defaultArea = "lovech";
     </div>
     <div class="area-stage">
       {
-        areas.map((area) => {
+        orderedAreas.map((area) => {
           const selected = area.id === defaultArea;
           const tabId = `rayon-tab-${area.id}`;
           const panelId = `rayon-panel-${area.id}`;

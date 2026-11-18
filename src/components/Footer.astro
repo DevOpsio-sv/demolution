@@ -21,8 +21,13 @@ const year = new Date().getFullYear();
     </nav>  
   </div>
   <div class="footer-bar">
-    <p>© {year} {business.provisionalName}. Всички права запазени.</p>
-    {business.legalName ? <p>{business.legalName}</p> : null}
+    <div class="footer-copy">
+      <p>© {year} {business.provisionalName}. Всички права запазени.</p>
+      {business.legalName ? <p>{business.legalName}</p> : null}
+    </div>
+    <p class="footer-credit">
+      Уебсайт от <a href="https://devopsio.co" target="_blank" rel="noopener noreferrer">DevOpsIO</a>
+    </p>
     <nav class="footer-legal" aria-label="Правна информация">
       <a href="/poveritelnost">Политика за поверителност</a>
       <a href="/biskvitki">Политика за бисквитките</a>

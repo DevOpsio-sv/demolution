@@ -1,5 +1,7 @@
 # Optional local/runtime config for the Pages Function.
 # Git deployment does not require this file. Secrets stay in the Pages dashboard.
 name = "demolution"
-compatibility_date = "2026-11-01"
-pages_build_output_dir = "dist"
+compatibility_date = "2026-11-18"
+
+[assets]
+directory = "./dist"
